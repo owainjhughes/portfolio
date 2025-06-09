@@ -10,12 +10,11 @@ export default function Home() {
             <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
               <path
                 d="M80 30c19.33 0 35 15.67 35 35s-15.67 35-35 35-35-15.67-35-35 15.67-35 35-35zm0 80c30 0 54 12 54 27v13H26v-13c0-15 24-27 54-27z"
-                stroke="url(#gradient)" strokeWidth="4" fill="none"
-              />
+                stroke="url(#gradient)" strokeWidth="4" fill="none"/>
               <defs>
                 <linearGradient id="gradient" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#60a5fa" />
-                  <stop offset="1" stopColor="#f472b6" />
+                  <stop stopColor="#60a5fa"/>
+                  <stop offset="1" stopColor="#f472b6"/>
                 </linearGradient>
               </defs>
             </svg>
@@ -34,54 +33,30 @@ export default function Home() {
         </div>
         {/* Right: Skills Grid */}
         <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center">
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/python.png" alt="Python" width={48} height={48} />
-            <span className="mt-3 font-semibold">Python</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/java.png" alt="Java" width={48} height={48} />
-            <span className="mt-3 font-semibold">Java</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/git.png" alt="Git" width={48} height={48} />
-            <span className="mt-3 font-semibold">Git</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/html.png" alt="HTML" width={48} height={48} />
-            <span className="mt-3 font-semibold">HTML</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/css.png" alt="CSS" width={48} height={48} />
-            <span className="mt-3 font-semibold">CSS</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/sql.png" alt="SQL" width={48} height={48} />
-            <span className="mt-3 font-semibold">SQL</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/javascript.png" alt="JavaScript" width={48} height={48} />
-            <span className="mt-3 font-semibold">JavaScript</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/typescript.png" alt="TypeScript" width={48} height={48} />
-            <span className="mt-3 font-semibold">TypeScript</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/react.png" alt="React" width={48} height={48} />
-            <span className="mt-3 font-semibold">React</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/nextjs.png" alt="Next.js" width={48} height={48} />
-            <span className="mt-3 font-semibold">Next.js</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/nodejs.png" alt="Node.js" width={48} height={48} />
-            <span className="mt-3 font-semibold">Node.js</span>
-          </div>
-          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
-            <Image src="/skills/express.png" alt="Express.js" width={48} height={48} />
-            <span className="mt-3 font-semibold">Express.js</span>
-          </div>
+          {[
+            { src: "/skills/python.png", label: "Python" },
+            { src: "/skills/java.png", label: "Java" },
+            { src: "/skills/git.png", label: "Git" },
+            { src: "/skills/html.png", label: "HTML" },
+            { src: "/skills/css.png", label: "CSS" },
+            { src: "/skills/sql.png", label: "SQL" },
+            { src: "/skills/javascript.png", label: "JavaScript" },
+            { src: "/skills/typescript.png", label: "TypeScript" },
+            { src: "/skills/react.png", label: "React" },
+            { src: "/skills/nextjs.png", label: "Next.js" },
+            { src: "/skills/nodejs.png", label: "Node.js" },
+            { src: "/skills/express.png", label: "Express.js" },
+          ].map((skill) => (
+            <div
+              key={skill.label}
+              className="flex flex-col items-center bg-black rounded-xl p-4 w-32 h-32 justify-center border-[2px] border-transparent"
+              style={{
+                borderImage: "linear-gradient(135deg, #60a5fa, #f472b6) 1",
+              }}>
+              <Image src={skill.src} alt={skill.label} width={48} height={48} />
+              <span className="mt-3 font-semibold">{skill.label}</span>
+            </div>
+          ))}
         </div>
       </section>
     </main>
