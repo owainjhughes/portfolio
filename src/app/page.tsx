@@ -2,102 +2,88 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-16">
+      <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
+        {/* Left: Icon and About */}
+        <div className="flex-1 flex flex-col items-center md:items-start">
+          <div className="mb-8">
+            <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
+              <path
+                d="M80 30c19.33 0 35 15.67 35 35s-15.67 35-35 35-35-15.67-35-35 15.67-35 35-35zm0 80c30 0 54 12 54 27v13H26v-13c0-15 24-27 54-27z"
+                stroke="url(#gradient)" strokeWidth="4" fill="none"
+              />
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#60a5fa" />
+                  <stop offset="1" stopColor="#f472b6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          {/* About Text */}
+          <h1 className="text-5xl font-extrabold mb-6 text-white tracking-tight md:text-left text-center">
+            About Me
+          </h1>
+          <p className="text-lg text-gray-200 mb-4 max-w-xl md:text-left text-center">
+            Hi there! My name is Owain. I&#39;m a Computer Science Masters student with a deep passion for all things software development.
+            <br/><br/>
+              My favourite thing about software engineering is the distinct combination of logic and creativity it contains. This unique combination drives my passion for software development. Outside of software engineering and my studies, I enjoy music, video games, films, lingustics and hanging out with my friends.
+            <br/><br/>
+            Email: owainjhughes@gmail.com
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        {/* Right: Skills Grid */}
+        <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center">
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/python.png" alt="Python" width={48} height={48} />
+            <span className="mt-3 font-semibold">Python</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/java.png" alt="Java" width={48} height={48} />
+            <span className="mt-3 font-semibold">Java</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/git.png" alt="Git" width={48} height={48} />
+            <span className="mt-3 font-semibold">Git</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/html.png" alt="HTML" width={48} height={48} />
+            <span className="mt-3 font-semibold">HTML</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/css.png" alt="CSS" width={48} height={48} />
+            <span className="mt-3 font-semibold">CSS</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/sql.png" alt="SQL" width={48} height={48} />
+            <span className="mt-3 font-semibold">SQL</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/javascript.png" alt="JavaScript" width={48} height={48} />
+            <span className="mt-3 font-semibold">JavaScript</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/typescript.png" alt="TypeScript" width={48} height={48} />
+            <span className="mt-3 font-semibold">TypeScript</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/react.png" alt="React" width={48} height={48} />
+            <span className="mt-3 font-semibold">React</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/nextjs.png" alt="Next.js" width={48} height={48} />
+            <span className="mt-3 font-semibold">Next.js</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/nodejs.png" alt="Node.js" width={48} height={48} />
+            <span className="mt-3 font-semibold">Node.js</span>
+          </div>
+          <div className="flex flex-col items-center bg-black border-2 rounded-xl p-4 w-32 h-32 justify-center">
+            <Image src="/skills/express.png" alt="Express.js" width={48} height={48} />
+            <span className="mt-3 font-semibold">Express.js</span>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
