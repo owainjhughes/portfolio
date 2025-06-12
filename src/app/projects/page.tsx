@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Project } from "@/types";
 
-const projects = [
+const projects: Project[] = [
   {
     title: "Spotify Popularity Tracker",
-    description:
-      "A small web app made for my Bachelors Dissertation. I continued to improve it after graduating since it was a passion project. NOTE: Not yet open to the public due to Spotify restrictions on API usage since it is still considered to be in development mode. Therefore all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you!",
+    description: "A small web app made for my Bachelors Dissertation. I continued to improve it after graduating since it was a passion project. NOTE: Not yet open to the public due to Spotify restrictions on API usage since it is still considered to be in development mode. Therefore all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you!",
     images: ["/spotifytracker.png", "/spotifytracker2.png"],
     tech: ["TypeScript", "Node.js", "Express.js", "BootStrap CSS", "Spotify API"],
     site: "https://spotify-popularity-tracker.vercel.app/",
@@ -15,16 +15,14 @@ const projects = [
   },
   {
     title: "Secure File Exchange System",
-    description:
-      "A secure file exchange client / server system built in Java. Uses AES/RSA for enecryption and MD5/SHA for Hashing / Message Digests.",
+    description: "A secure file exchange client / server system built in Java. Uses AES/RSA for enecryption and MD5/SHA for Hashing / Message Digests.",
     images: ["/javasecure.png"],
     tech: ["Java", "AES", "RSA", "MD5", "SHA"],
     github: "https://github.com/owainjhughes/secure-filetransfer-server",
   },
   {
     title: "COVID-19 ICU Admission Prediction Model",
-    description:
-      "A machine learning model to predict ICU admissions during the COVID-19 pandemic. It uses various features from patient data to make predictions. Uses Pandas and NumPy for Data Cleansing, Seaborn for Data Visualisation and PySpark for data processing and analysis. Accuracy: 0.98, F1 Score: 0.97, Precision: 0.96, Recall: 0.98.",
+    description: "A machine learning model to predict ICU admissions during the COVID-19 pandemic. It uses various features from patient data to make predictions. Uses Pandas and NumPy for Data Cleansing, Seaborn for Data Visualisation and PySpark for data processing and analysis. Accuracy: 0.98, F1 Score: 0.97, Precision: 0.96, Recall: 0.98.",
     images: ["/covidmodel.png", "/covidmodel2.png", "/covidmodel3.png", "/covidmodel4.png", "/covidmodel5.png"],
     tech: ["Python", "Jupyter Notebook", "PySpark", "Pandas", "NumPy", "Seaborn"],
     github: "https://github.com/owainjhughes/patient-modelling",
