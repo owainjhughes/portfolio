@@ -1,6 +1,6 @@
 # My Portfolio
 
-## Source Code of my Portfolio website found at https://owainhughes.dev/
+## Source Code of my Portfolio website found at [https://owainhughes.dev/](https://owainhughes.dev/)
 
 Stack:
 TypeScript

@@ -7,8 +7,7 @@ export default function AboutSection() {
             d="M80 30c19.33 0 35 15.67 35 35s-15.67 35-35 35-35-15.67-35-35 15.67-35 35-35zm0 80c30 0 54 12 54 27v13H26v-13c0-15 24-27 54-27z"
             stroke="url(#gradient)"
             strokeWidth="4"
-            fill="none"
-          />
+            fill="none"/>
           <defs>
             <linearGradient
               id="gradient"

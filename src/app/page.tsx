@@ -11,10 +11,10 @@ const CIRCLE_SIZE = 6;
 const skills: Skill[] = [
   { src: "/skills/python.png", label: "Python" },
   { src: "/skills/java.png", label: "Java" },
-  { src: "/skills/git.png", label: "Git" },
-  { src: "/skills/html.png", label: "HTML" },
-  { src: "/skills/css.png", label: "CSS" },
   { src: "/skills/sql.png", label: "SQL" },
+  { src: "/skills/docker.png", label: "Docker" },
+  { src: "/skills/kubernetes.png", label: "Kubernetes" },
+  { src: "/skills/git.png", label: "Git" },
   { src: "/skills/javascript.png", label: "JavaScript" },
   { src: "/skills/typescript.png", label: "TypeScript" },
   { src: "/skills/react.png", label: "React" },
