@@ -12,10 +12,19 @@ spec:
       labels:
         app: portfolio
     spec:
+    # Noisy neighbour protection
       containers:
         - name: portfolio
           image: ojhdev/portfolio:latest
+          ports:
             - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
