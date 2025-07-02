@@ -1,4 +1,10 @@
+import Image from "next/image";
+import React, { useState } from "react";
+import EmailModal from "./email";
+
 export default function AboutSection() {
+  const [showEmail, setShowEmail] = useState(false);
+
   return (
     <div className="flex-1 flex flex-col items-center md:items-start">
       <div className="mb-8">
@@ -15,8 +21,7 @@ export default function AboutSection() {
               y1="0"
               x2="160"
               y2="160"
-              gradientUnits="userSpaceOnUse"
-            >
+              gradientUnits="userSpaceOnUse">
               <stop stopColor="#60a5fa" />
               <stop offset="1" stopColor="#f472b6" />
             </linearGradient>
@@ -27,18 +32,30 @@ export default function AboutSection() {
         About Me
       </h1>
       <p className="text-lg text-gray-200 mb-4 max-w-xl md:text-left text-center">
-        Hi there! My name is Owain. I&#39;m a Computer Science Masters student with a deep passion for all things software development.
+        Hi there! My name is Owain. I&#39;m a Computer Science Masters student and Software Engineer.
         <br />
         <br />
-        My favourite thing about software engineering is the distinct combination of logic and creativity it contains. This unique combination drives my passion for software development. Outside of software engineering and my studies, I enjoy music, video games, films, linguistics and hanging out with my friends.
-        <br />
-        <br />
-        Email: owainjhughes@gmail.com
-        <br />
-        GitHub: <a href="https://github.com/owainjhughes" className="text-blue-400 hover:underline">github.com/owainjhughes</a>
-        <br />
-        LinkedIn: <a href="https://www.linkedin.com/in/ohdev" className="text-blue-400 hover:underline">https://www.linkedin.com/in/ohdev</a>
+        My favourite thing about software engineering is the distinct combination of logic and creativity it contains. I am currently gaining DevOps experience applying certain practices to my solo coding projects (Docker, Kubernetes, Terraform, AWS etc.). Outside of software engineering and my studies, I like music, video games, films and linguistics.
       </p>
+      <span className="flex items-center gap-4 mt-2">
+        <a href="https://github.com/owainjhughes" target="_blank" rel="noopener noreferrer">
+          <Image src="/skills/github.png" alt="GitHub" width={64} height={64}/>
+        </a>
+        <a href="https://www.linkedin.com/in/ohdev" target="_blank" rel="noopener noreferrer">
+          <Image src="/skills/linkedin.png" alt="LinkedIn" width={64} height={64}/>
+        </a>
+        <button
+          onClick={() => setShowEmail(true)}
+          className="bg-transparent border-none p-0 m-0 focus:outline-none"
+          aria-label="Show Email"
+          type="button">
+          <Image src="/skills/email.png" alt="Email" width={64} height={64}/>
+        </button>
+      </span>
+      <EmailModal
+        show={showEmail}
+        onClose={() => setShowEmail(false)}
+        email="owainjhughes@gmail.com"/>
     </div>
   );
 }

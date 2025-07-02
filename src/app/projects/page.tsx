@@ -63,7 +63,7 @@ export default function Projects() {
 
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-16 relative">
-      {/* Left Project Arrow */}
+      {/* Left Arrow */}
       <button
         onClick={prevProject}
         className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-5xl text-white hover:text-blue-400 transition-colors bg-transparent shadow-none p-0 border-none"
@@ -72,9 +72,9 @@ export default function Projects() {
         <span>&lt;</span>
       </button>
 
-      {/* Project Layout */}
+      {/* Layout */}
       <section className="w-full max-w-7xl h-[80vh] mx-auto flex flex-col md:flex-row gap-0 items-stretch overflow-hidden">
-        {/* Project Images - left half */}
+        {/* Images - left half */}
         <div className="relative flex-shrink-0 w-full md:w-1/2 h-[40vh] md:h-[80vh] flex flex-col items-center justify-center bg-black">
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
@@ -96,7 +96,6 @@ export default function Projects() {
                   style={{ background: "none" }}>
                   &lt;
                 </button>
-                {/* Dots */}
                 <div className="flex gap-2">
                   {project.images.map((_, idx) => (
                     <span
@@ -122,7 +121,7 @@ export default function Projects() {
             </div>
           )}
         </div>
-        {/* Project Details - right half */}
+        {/* Details - right half */}
         <div className="flex-1 flex flex-col justify-center items-start w-full md:w-1/2 h-full px-8 py-10 bg-black md:rounded-r-2xl">
           <h2 className="text-4xl font-extrabold mb-4 text-white">{project.title}</h2>
           <p className="text-lg text-gray-200 mb-6">{project.description}</p>
@@ -158,7 +157,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Right Project Arrow */}
+      {/* Right Arrow */}
       <button
         onClick={nextProject}
         className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-5xl text-white hover:text-blue-400 transition-colors bg-transparent shadow-none p-0 border-none"
