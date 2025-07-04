@@ -29,13 +29,16 @@ jobs:
       run: |
         mkdir -p $HOME/.kube
         echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > $HOME/.kube/config
-        
-    - name: Install Google Cloud SDK and GKE Auth Plugin
+
+    - name: Add Google Cloud public signing key
       run: |
-        echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-        sudo apt-get install -y apt-transport-https ca-certificates gnupg
-        sudo apt-get update && sudo apt-get install -y google-cloud-sdk
-        gcloud components install gke-gcloud-auth-plugin --quiet
+        sudo apt-get install -y --no-install-recommends gnupg
+        curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+        echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+        sudo apt-get update
+
+    - name: Install gke-gcloud-auth-plugin
+      run: sudo apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin
 
     - name: Set up kubectl
       uses: azure/setup-kubectl@v3
