@@ -1,0 +1,43 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: |
+        docker build -t ojhdev/portfolio:${{ github.sha }} .
+        docker tag ojhdev/portfolio:${{ github.sha }} ojhdev/portfolio:latest
+
+    - name: Push Docker image
+      run: |
+        docker push ojhdev/portfolio:${{ github.sha }}
+        docker push ojhdev/portfolio:latest
+
+    - name: Decode kubeconfig
+      run: echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > $HOME/.kube/config
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+
+    - name: Update image tag in deployment.yaml
+      run: |
+        sed -i "s|ojhdev/portfolio:latest|ojhdev/portfolio:${{ github.sha }}|g" deployment.yaml
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f deployment.yaml
+        kubectl rollout status deployment/portfolio
