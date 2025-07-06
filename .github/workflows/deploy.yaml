@@ -1,66 +1,19 @@
-name: Deploy to Kubernetes
+name: Build and Push Docker Image
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Log in to Docker Hub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-    - name: Build Docker image
-      run: |
-        docker build -t ojhdev/portfolio:${{ github.sha }} .
-        docker tag ojhdev/portfolio:${{ github.sha }} ojhdev/portfolio:latest
-
-    - name: Push Docker image
-      run: |
-        docker push ojhdev/portfolio:${{ github.sha }}
-        docker push ojhdev/portfolio:latest
-
-    - name: Decode kubeconfig
-      run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG_B64 }}" | base64 -d > $HOME/.kube/config
-
-    - name: Add Google Cloud public signing key
-      run: |
-        sudo apt-get install -y --no-install-recommends gnupg
-        curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-        echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
-        sudo apt-get update
-
-    - name: Install gke-gcloud-auth-plugin
-      run: sudo apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin
-
-    - name: Verify gke-gcloud-auth-plugin
-      run: |
-        which gke-gcloud-auth-plugin || echo "Plugin not found in PATH"
-        gke-gcloud-auth-plugin --version || echo "Unable to get plugin version"
-
-    - name: Ensure gke-gcloud-auth-plugin in PATH
-      run: |
-        export PATH=$PATH:/usr/lib/google-cloud-sdk/bin
-        which gke-gcloud-auth-plugin
-        gke-gcloud-auth-plugin --version
-
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'latest'
-
-    - name: Update image tag in deployment.yaml
-      run: |
-        sed -i "s|ojhdev/portfolio:latest|ojhdev/portfolio:${{ github.sha }}|g" deployment.yaml
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f deployment.yaml
-        kubectl rollout status deployment/portfolio
+      - uses: actions/checkout@v3
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Build and push Docker image
+        run: |
+          docker build -t ojhdev/portfolio:${{ github.sha }} .
+          docker tag ojhdev/portfolio:${{ github.sha }} ojhdev/portfolio:latest
+          docker push ojhdev/portfolio:${{ github.sha }}
+          docker push ojhdev/portfolio:latest

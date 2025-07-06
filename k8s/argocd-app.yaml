@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portfolio
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ojhdev/portfolio
+    argocd-image-updater.argoproj.io/ojhdev-portfolio.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/owainjhughes/portfolio'
+    targetRevision: main
+    path: k8s
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
