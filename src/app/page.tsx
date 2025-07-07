@@ -27,8 +27,7 @@ export default function Home() {
   const [entered, setEntered] = useState(false);
   const [fade, setFade] = useState(false);
   const [circles, setCircles] = useState<
-    { left: string; top: string; size: string; delay: string; duration: string; key: string }[]
-  >([]);
+    { left: string; top: string; size: string; delay: string; duration: string; key: string }[]>([]);
   const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -61,6 +60,15 @@ export default function Home() {
     setFade(true);
     setTimeout(() => setEntered(true), 500);
   };
+
+    useEffect(() => {
+      if(!entered) {
+        skills.forEach(skill => {
+          const img = new Image();
+          img.src = skill.src;
+        });
+      }
+  }, [entered]);
 
   if (!entered) {
     return (
