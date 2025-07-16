@@ -59,8 +59,21 @@ export default function Home() {
 
   const handleEnter = () => {
     setFade(true);
+    // Show header when entering
+    const header = document.getElementById('main-header');
+    if (header) {
+      header.style.display = 'block';
+    }
     setTimeout(() => setEntered(true), 500);
   };
+
+  useEffect(() => {
+    // Hide header initially
+    const header = document.getElementById('main-header');
+    if (header && !entered) {
+      header.style.display = 'none';
+    }
+  }, [entered]);
 
   useEffect(() => {
     if(!entered) {
@@ -71,29 +84,31 @@ export default function Home() {
     }
   }, [entered]);
 
-  if (!entered) {
-    return (
-      <AnimatedBackground
-        circles={circles}
-        mouse={mouse}
-        containerRef={containerRef}
-        onEnter={handleEnter}
-        fade={fade}/>
-    );
-  }
-
   return (
-    <div className="bg-black">
-      {/* About & Skills Section */}
-      <section id="about" className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-16">
-        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
-          <AboutSection />
-          <SkillsGrid skills={skills} />
-        </div>
-      </section>
+    <div className="bg-black relative">
+      {/* Main Content - Always Rendered */}
+      <div className="bg-black">
+        {/* About & Skills Section */}
+        <section id="about" className={`min-h-screen bg-black text-white flex items-center justify-center px-4 ${entered ? 'pt-20 pb-16' : 'py-16'}`}>
+          <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
+            <AboutSection />
+            <SkillsGrid skills={skills} />
+          </div>
+        </section>
 
-      {/* Projects Section */}
-      <ProjectsSection />
+        {/* Projects Section */}
+        <ProjectsSection />
+      </div>
+
+      {/* Animated Background Overlay */}
+      {!entered && (
+        <AnimatedBackground
+          circles={circles}
+          mouse={mouse}
+          containerRef={containerRef}
+          onEnter={handleEnter}
+          fade={fade}/>
+      )}
     </div>
   );
 }
