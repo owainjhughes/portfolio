@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import AboutSection from "@/components/about";
 import SkillsGrid from "@/components/skillgrid";
+import ProjectsSection from "@/components/projects";
 import AnimatedBackground from "@/components/background";
 import { Skill } from "@/types";
 
@@ -61,13 +62,13 @@ export default function Home() {
     setTimeout(() => setEntered(true), 500);
   };
 
-    useEffect(() => {
-      if(!entered) {
-        skills.forEach(skill => {
-          const img = new Image();
-          img.src = skill.src;
-        });
-      }
+  useEffect(() => {
+    if(!entered) {
+      skills.forEach(skill => {
+        const img = new Image();
+        img.src = skill.src;
+      });
+    }
   }, [entered]);
 
   if (!entered) {
@@ -82,11 +83,17 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-16">
-      <section className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
-        <AboutSection />
-        <SkillsGrid skills={skills} />
+    <div className="bg-black">
+      {/* About & Skills Section */}
+      <section id="about" className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-16">
+        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
+          <AboutSection />
+          <SkillsGrid skills={skills} />
+        </div>
       </section>
-    </main>
+
+      {/* Projects Section */}
+      <ProjectsSection />
+    </div>
   );
 }
