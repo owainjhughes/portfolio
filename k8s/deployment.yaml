@@ -12,10 +12,11 @@ spec:
       labels:
         app: portfolio
     spec:
-    # Noisy neighbour protection
+      # Noisy neighbour protection
       containers:
         - name: portfolio
           image: ojhdev/portfolio:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           resources:
