@@ -86,21 +86,17 @@ export default function Home() {
 
   return (
     <div className="bg-black relative">
-      {/* Main Content - Always Rendered */}
+      {/* Main Content */}
       <div className="bg-black">
-        {/* About & Skills Section */}
         <section id="about" className={`min-h-screen bg-black text-white flex items-center justify-center px-4 ${entered ? 'pt-20 pb-16' : 'py-16'}`}>
           <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
             <AboutSection />
             <SkillsGrid skills={skills} />
           </div>
         </section>
-
-        {/* Projects Section */}
         <ProjectsSection />
       </div>
 
-      {/* Animated Background Overlay */}
       {!entered && (
         <AnimatedBackground
           circles={circles}

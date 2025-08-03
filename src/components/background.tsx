@@ -75,8 +75,9 @@ export default function AnimatedBackground({
       </div>
       <button
         onClick={onEnter}
-        className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-400 to-pink-400 text-white text-2xl font-bold shadow-lg hover:scale-105 transition-transform z-10">
-        Click Here to Enter
+        className="group relative px-20 py-8 bg-gray-900/50 hover:bg-gray-800/70 border-4 border-gray-600 hover:border-blue-400 text-white text-4xl font-black rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:shadow-blue-500/50 z-10 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/0 to-pink-400/0 group-hover:from-blue-400/20 group-hover:to-pink-400/20 transition-all duration-500 rounded-3xl"></div>
+        <span className="relative z-10 group-hover:text-blue-200 transition-colors duration-300">View my work</span>
       </button>
       <style jsx global>{`
         @keyframes bob {

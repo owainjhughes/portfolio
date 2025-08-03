@@ -50,9 +50,16 @@ export default function EmailModal({ show, onClose, email }: EmailModalProps) {
           </div>
         </div>
         <button
-          className="px-6 py-2 rounded-full bg-gradient-to-r from-blue-400 to-pink-400 text-white font-bold shadow hover:scale-105 transition-transform"
-          onClick={onClose}>
-          Close
+          className="group relative w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-gray-500 transition-all duration-200 flex items-center justify-center"
+          onClick={onClose}
+          aria-label="Close modal">
+          <svg 
+            className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-200" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
       <style jsx global>{`

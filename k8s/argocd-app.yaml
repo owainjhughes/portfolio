@@ -10,11 +10,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/owainjhughes/portfolio'
+    repoURL: "https://github.com/owainjhughes/portfolio"
     targetRevision: main
     path: k8s
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
     namespace: default
   syncPolicy:
     automated:
