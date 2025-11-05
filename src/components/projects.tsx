@@ -9,7 +9,7 @@ const projects: Project[] = [
     title: "Discogrify",
     description: "A web app that allows a user to view and sort critical ratings and reviews of the saved albums on Spotify. NOTE: Due to the 13/05/25 changes made to the Spotify API, this app cannot be given an unlimited user quota since I am an individual not an organization. Therefore, all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you! Or alternatively, use the test account if you just want to test the features. Email: discogrifytest@gmail.com, Pass: discogrifytest!",
     images: ["/discog1.png", "/discog2.png", "/discog3.png"],
-    tech: ["TypeScript", "Node.js", "Express.js", "BootStrap CSS", "PostgreSQL","RESTful APIs (Discogs, Spotify)"],
+    tech: ["TypeScript", "Node.js", "Express.js", "BootStrap CSS", "PostgreSQL", "RESTful APIs (Discogs, Spotify)"],
     site: "https://discogrify.vercel.app/",
     github: "https://github.com/owainjhughes/discogrify",
   },
@@ -66,7 +66,7 @@ export default function ProjectsSection() {
         <h2 className="text-5xl font-extrabold mb-12 text-white text-center">
           Projects
         </h2>
-        
+
         {/* Project Navigation Arrows */}
         <button
           onClick={prevProject}
@@ -87,7 +87,7 @@ export default function ProjectsSection() {
                 fill
                 style={{ objectFit: "contain" }}
                 className="rounded-none md:rounded-l-2xl shadow-lg bg-black"
-                priority/>
+                priority />
             </div>
             {/* Image navigation below image */}
             {project.images.length > 1 && (
@@ -104,11 +104,10 @@ export default function ProjectsSection() {
                     {project.images.map((_, idx) => (
                       <span
                         key={idx}
-                        className={`w-3 h-3 rounded-full border border-white ${
-                          idx === currentImage
-                            ? "bg-gradient-to-r from-blue-400 to-pink-400"
+                        className={`w-3 h-3 rounded-full border border-white ${idx === currentImage
+                            ? "bg-blue-400"
                             : "bg-black"
-                        } transition`}/>
+                          } transition`} />
                     ))}
                   </div>
                   <button
@@ -125,7 +124,7 @@ export default function ProjectsSection() {
               </div>
             )}
           </div>
-          
+
           {/* Details - right half */}
           <div className="flex-1 flex flex-col justify-center items-start w-full md:w-1/2 h-full px-8 py-10 bg-black md:rounded-r-2xl">
             <h3 className="text-4xl font-extrabold mb-4 text-white">{project.title}</h3>
@@ -144,7 +143,7 @@ export default function ProjectsSection() {
                   href={project.site}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 rounded-full bg-white text-black font-semibold shadow hover:bg-gray-200 transition">
+                  className="px-5 py-2 rounded-full bg-blue-400 text-white font-semibold shadow hover:bg-blue-500 transition">
                   View Site
                 </a>
               )}
@@ -152,7 +151,7 @@ export default function ProjectsSection() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 rounded-full border border-white text-white font-semibold shadow hover:bg-gray-800 transition">
+                className="px-5 py-2 rounded-full border border-blue-400 text-blue-400 font-semibold shadow hover:bg-blue-400 hover:text-white transition">
                 GitHub
               </a>
             </div>

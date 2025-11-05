@@ -10,7 +10,7 @@ export default function SkillsGrid({ skills }: { skills: Skill[] }) {
           className="group relative flex flex-col items-center justify-center w-28 h-32 sm:w-32 sm:h-36 cursor-pointer transition-transform duration-200 hover:scale-105"
         >
           <div 
-            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300"
+            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 group-hover:blue-60"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
