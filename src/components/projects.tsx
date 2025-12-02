@@ -89,7 +89,7 @@ export default function ProjectsSection() {
                 className="rounded-none md:rounded-l-2xl shadow-lg bg-black"
                 priority />
             </div>
-            {/* Image navigation below image */}
+            {/* Image navigation (aka the left/right buttons below the image) */}
             {project.images.length > 1 && (
               <div className="flex flex-col items-center mt-4">
                 <div className="flex flex-row items-center gap-6">
