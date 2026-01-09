@@ -23,7 +23,7 @@ export default function AboutSection() {
         Hi there! My name is Owain. I&apos;m a Computer Science Masters student and Software Engineer.
         <br />
         <br />
-        My favourite thing about software engineering is the distinct combination of logic and creativity it contains. Outside of software engineering and my studies, I like music, video games, films and linguistics.
+        Currently set to graduate summer 2026, I am looking for Junior / Graduate Software Engineer / DevOps roles. Outside of software engineering and my studies I like music, video games, films and linguistics.
       </p>
       <div className="flex items-center gap-6 mt-2">
         <a
@@ -33,14 +33,14 @@ export default function AboutSection() {
           className="group relative flex items-center justify-center w-20 h-20 cursor-pointer transition-transform duration-200 hover:scale-105"
         >
           <div
-            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300"
+            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
           />
 
           <div
-            className="absolute inset-1 bg-black transition-all duration-300 group-hover:bg-gray-900"
+            className="absolute inset-1 bg-black transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
@@ -54,7 +54,6 @@ export default function AboutSection() {
             className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-              background: 'linear-gradient(135deg, #60a5fa, #f472b6)',
             }}
           />
         </a>
@@ -66,14 +65,14 @@ export default function AboutSection() {
           className="group relative flex items-center justify-center w-20 h-20 cursor-pointer transition-transform duration-200 hover:scale-105"
         >
           <div
-            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300"
+            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
           />
 
           <div
-            className="absolute inset-1 bg-black transition-all duration-300 group-hover:bg-gray-900"
+            className="absolute inset-1 bg-black transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
@@ -87,7 +86,6 @@ export default function AboutSection() {
             className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-              background: 'linear-gradient(135deg, #60a5fa, #f472b6)',
             }}
           />
         </a>
@@ -99,14 +97,14 @@ export default function AboutSection() {
           type="button"
         >
           <div
-            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300"
+            className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
           />
 
           <div
-            className="absolute inset-1 bg-black transition-all duration-300 group-hover:bg-gray-900"
+            className="absolute inset-1 bg-black transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
@@ -120,7 +118,6 @@ export default function AboutSection() {
             className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-              background: 'linear-gradient(135deg, #60a5fa, #f472b6)',
             }}
           />
         </button>

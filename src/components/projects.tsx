@@ -7,25 +7,32 @@ import { Project } from "@/types";
 const projects: Project[] = [
   {
     title: "Discogrify",
-    description: "A web app that allows a user to view and sort critical ratings and reviews of the saved albums on Spotify. NOTE: Due to the 13/05/25 changes made to the Spotify API, this app cannot be given an unlimited user quota since I am an individual not an organization. Therefore, all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you! Or alternatively, use the test account if you just want to test the features. Email: discogrifytest@gmail.com, Pass: discogrifytest!",
+    description: "A web app that allows a user to view and sort critical ratings and reviews of the saved albums on Spotify. NOTE: Due to the 13/05/25 changes made to the Spotify API, this app cannot be given an unlimited user quota since I am an individual not an organization. Therefore, all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you! Or alternatively, use the test account if you just want to test the features. Email: discogrifytest@gmail.com Pass: discogrifytest!",
     images: ["/discog1.png", "/discog2.png", "/discog3.png"],
     tech: ["TypeScript", "Node.js", "Express.js", "BootStrap CSS", "PostgreSQL", "RESTful APIs (Discogs, Spotify)"],
     site: "https://discogrify.vercel.app/",
-    github: "https://github.com/owainjhughes/discogrify",
+    github: "https://github.com/owainjhughes/discogrify"
   },
   {
     title: "Secure File Exchange System",
     description: "A secure file exchange client / server system built in Java. Uses AES/RSA for enecryption and MD5/SHA for Hashing / Message Digests.",
     images: ["/javasecure.png"],
     tech: ["Java", "AES", "RSA", "MD5", "SHA"],
-    github: "https://github.com/owainjhughes/secure-filetransfer-server",
+    github: "https://github.com/owainjhughes/secure-filetransfer-server"
   },
   {
     title: "COVID-19 ICU Admission Prediction Model",
     description: "A machine learning model to predict ICU admissions during the COVID-19 pandemic. It uses various features from patient data to make predictions. Uses Pandas and NumPy for Data Cleansing, Seaborn for Data Visualisation and PySpark for data processing and analysis. Accuracy: 0.98, F1 Score: 0.97, Precision: 0.96, Recall: 0.98.",
     images: ["/covidmodel.png", "/covidmodel2.png", "/covidmodel3.png", "/covidmodel4.png", "/covidmodel5.png"],
     tech: ["Python", "Jupyter Notebook", "PySpark", "Pandas", "NumPy", "Seaborn"],
-    github: "https://github.com/owainjhughes/patient-modelling",
+    github: "https://github.com/owainjhughes/patient-modelling"
+  },
+    {
+    title: "Linux CLI Clone",
+    description: "A Linux command line interface clone built using C++. Mimics basing linux commands such as cd and mkdir, built using a tree-like linked list data structure. (It's a CLI, so not much to have an image of so here's a picture of young Mr Krabs instead)",
+    images: ["/Youngmrkrab.png"],
+    tech: ["C++"],
+    github: "https://github.com/owainjhughes/linux-filesystem-clone"
   },
 ];
 
@@ -67,7 +74,7 @@ export default function ProjectsSection() {
           Projects
         </h2>
 
-        {/* Project Navigation Arrows */}
+        {/* Navigation Arrows */}
         <button
           onClick={prevProject}
           className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-5xl text-white hover:text-blue-400 transition-colors bg-transparent shadow-none p-0 border-none"
@@ -76,9 +83,8 @@ export default function ProjectsSection() {
           <span>&lt;</span>
         </button>
 
-        {/* Project Content */}
+        {/* Main Content */}
         <div className="w-full max-w-7xl h-[70vh] mx-auto flex flex-col md:flex-row gap-0 items-stretch overflow-hidden">
-          {/* Images - left half */}
           <div className="relative flex-shrink-0 w-full md:w-1/2 h-[35vh] md:h-[70vh] flex flex-col items-center justify-center bg-black">
             <div className="relative w-full h-full flex items-center justify-center">
               <Image
@@ -89,7 +95,6 @@ export default function ProjectsSection() {
                 className="rounded-none md:rounded-l-2xl shadow-lg bg-black"
                 priority />
             </div>
-            {/* Image navigation (aka the left/right buttons below the image) */}
             {project.images.length > 1 && (
               <div className="flex flex-col items-center mt-4">
                 <div className="flex flex-row items-center gap-6">
@@ -125,7 +130,6 @@ export default function ProjectsSection() {
             )}
           </div>
 
-          {/* Details - right half */}
           <div className="flex-1 flex flex-col justify-center items-start w-full md:w-1/2 h-full px-8 py-10 bg-black md:rounded-r-2xl">
             <h3 className="text-4xl font-extrabold mb-4 text-white">{project.title}</h3>
             <p className="text-lg text-gray-200 mb-6">{project.description}</p>

@@ -7,17 +7,17 @@ import { Skill } from "@/types";
 
 const skills: Skill[] = [
   { src: "/skills/python.png", label: "Python" },
-  { src: "/skills/java.png", label: "Java" },
+  { src: "/skills/go.png", label: "Go" },
   { src: "/skills/sql.png", label: "SQL" },
   { src: "/skills/docker.png", label: "Docker" },
   { src: "/skills/kubernetes.png", label: "Kubernetes" },
   { src: "/skills/git.png", label: "Git" },
-  { src: "/skills/javascript.png", label: "JavaScript" },
+  //{ src: "/skills/javascript.png", label: "JavaScript" },
   { src: "/skills/typescript.png", label: "TypeScript" },
   { src: "/skills/react.png", label: "React" },
-  { src: "/skills/nextjs.png", label: "Next.js" },
+  //{ src: "/skills/nextjs.png", label: "Next.js" },
   { src: "/skills/nodejs.png", label: "Node.js" },
-  { src: "/skills/express.png", label: "Express.js" },
+  //{ src: "/skills/express.png", label: "Express.js" },
 ];
 
 export default function Home() {
