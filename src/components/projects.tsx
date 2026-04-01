@@ -6,6 +6,14 @@ import { Project } from "@/types";
 
 const projects: Project[] = [
   {
+    title: "ObuCon",
+    description: "Online web application that determines the suitability of an online text-based resource, such as a short story or newspaper article, for people learning a non-native language.",
+    images: ["/obucon1.png", "/obucon2.png"],
+    tech: ["Go (Gin, GORM)", "React", "TailWind CSS", "PostgreSQL", "Docker", "Terraform", "AWS (EC2, RDS)"],
+    site: "https://obucon.com",
+    github: "https://github.com/owainjhughes/obucon"
+  },
+  {
     title: "Discogrify",
     description: "A web app that allows a user to view and sort critical ratings and reviews of the saved albums on Spotify. NOTE: Due to the 13/05/25 changes made to the Spotify API, this app cannot be given an unlimited user quota since I am an individual not an organization. Therefore, all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you! Or alternatively, use the test account if you just want to test the features. Email: discogrifytest@gmail.com Pass: discogrifytest!",
     images: ["/discog1.png", "/discog2.png", "/discog3.png"],
