@@ -20,10 +20,10 @@ export default function AboutSection() {
         About Me
       </h1>
       <p className="text-lg text-gray-200 mb-4 max-w-xl md:text-left text-center">
-        Hi there! My name is Owain. I&apos;m a Computer Science Masters student and Software Engineer.
+        Hi there! My name is Owain. I&apos;m a Full-stack Software Engineer.
         <br />
         <br />
-        Currently set to graduate summer 2026, I am looking for Junior / Graduate Software Engineer / DevOps roles. Outside of software engineering and my studies I like music, video games, films and linguistics.
+        Outside of software engineering and my studies I like music, video games, films and learning languages.
       </p>
       <div className="flex items-center gap-6 mt-2">
         <a
