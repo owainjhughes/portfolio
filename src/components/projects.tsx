@@ -95,13 +95,20 @@ export default function ProjectsSection() {
         <div className="w-full max-w-7xl h-[70vh] mx-auto flex flex-col md:flex-row gap-0 items-stretch overflow-hidden">
           <div className="relative flex-shrink-0 w-full md:w-1/2 h-[35vh] md:h-[70vh] flex flex-col items-center justify-center bg-black">
             <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src={project.images[currentImage]}
-                alt={project.title}
-                fill
-                style={{ objectFit: "contain" }}
-                className="rounded-none md:rounded-l-2xl shadow-lg bg-black"
-                priority />
+              {projects.flatMap((p, pIdx) =>
+                p.images.map((src, iIdx) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt={p.title}
+                    fill
+                    style={{ objectFit: "contain" }}
+                    className={`rounded-none md:rounded-l-2xl shadow-lg bg-black ${
+                      pIdx === current && iIdx === currentImage ? "" : "opacity-0 pointer-events-none"
+                    }`}
+                    priority={pIdx === 0} />
+                ))
+              )}
             </div>
             {project.images.length > 1 && (
               <div className="flex flex-col items-center mt-4">
