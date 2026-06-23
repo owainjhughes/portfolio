@@ -40,7 +40,7 @@ export default function AboutSection() {
           />
 
           <div
-            className="absolute inset-1 bg-black transition-all duration-300"
+            className="absolute inset-1 bg-neutral-900 transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
@@ -72,7 +72,7 @@ export default function AboutSection() {
           />
 
           <div
-            className="absolute inset-1 bg-black transition-all duration-300"
+            className="absolute inset-1 bg-neutral-900 transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
@@ -104,7 +104,7 @@ export default function AboutSection() {
           />
 
           <div
-            className="absolute inset-1 bg-black transition-all duration-300"
+            className="absolute inset-1 bg-neutral-900 transition-all duration-300"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}

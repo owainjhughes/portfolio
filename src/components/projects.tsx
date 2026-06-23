@@ -44,6 +44,22 @@ const projects: Project[] = [
   },
 ];
 
+// Arrows
+function Arrow({ dir, className }: { dir: "left" | "right"; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}>
+      <polyline points={dir === "left" ? "15 18 9 12 15 6" : "9 18 15 12 9 6"} />
+    </svg>
+  );
+}
+
 export default function ProjectsSection() {
   const [current, setCurrent] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -76,7 +92,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-16 relative">
+    <section id="projects" className="min-h-screen bg-neutral-950 text-white flex items-center justify-center px-4 py-16 relative">
       <div className="w-full max-w-6xl mx-auto">
         <h2 className="text-5xl font-extrabold mb-12 text-white text-center">
           Projects
@@ -85,15 +101,14 @@ export default function ProjectsSection() {
         {/* Navigation Arrows */}
         <button
           onClick={prevProject}
-          className="absolute left-8 top-1/2 -translate-y-1/2 z-10 text-5xl text-white hover:text-blue-400 transition-colors bg-transparent shadow-none p-0 border-none"
-          aria-label="Previous project"
-          style={{ background: "none" }}>
-          <span>&lt;</span>
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white/5 text-white hover:bg-blue-400 hover:text-black transition-colors border border-white/10"
+          aria-label="Previous project">
+          <Arrow dir="left" className="w-6 h-6" />
         </button>
 
         {/* Main Content */}
-        <div className="w-full max-w-7xl h-[70vh] mx-auto flex flex-col md:flex-row gap-0 items-stretch overflow-hidden">
-          <div className="relative flex-shrink-0 w-full md:w-1/2 h-[35vh] md:h-[70vh] flex flex-col items-center justify-center bg-black">
+        <div className="w-full max-w-7xl h-[80vh] mx-auto flex flex-col md:flex-row gap-0 items-stretch overflow-hidden">
+          <div className="relative flex-shrink-0 w-full md:w-1/2 h-[42vh] md:h-[80vh] flex flex-col items-center justify-center bg-neutral-900 md:rounded-l-2xl p-5 md:p-10">
             <div className="relative w-full h-full flex items-center justify-center">
               {projects.flatMap((p, pIdx) =>
                 p.images.map((src, iIdx) => (
@@ -103,7 +118,7 @@ export default function ProjectsSection() {
                     alt={p.title}
                     fill
                     style={{ objectFit: "contain" }}
-                    className={`rounded-none md:rounded-l-2xl shadow-lg bg-black ${
+                    className={`rounded-none md:rounded-l-2xl shadow-lg bg-neutral-900 ${
                       pIdx === current && iIdx === currentImage ? "" : "opacity-0 pointer-events-none"
                     }`}
                     priority={pIdx === 0} />
@@ -115,10 +130,9 @@ export default function ProjectsSection() {
                 <div className="flex flex-row items-center gap-6">
                   <button
                     onClick={prevImage}
-                    className="text-3xl text-white hover:text-blue-400 bg-transparent p-0 border-none"
-                    aria-label="Previous image"
-                    style={{ background: "none" }}>
-                    &lt;
+                    className="text-white hover:text-blue-400 transition-colors"
+                    aria-label="Previous image">
+                    <Arrow dir="left" className="w-5 h-5" />
                   </button>
                   <div className="flex gap-2">
                     {project.images.map((_, idx) => (
@@ -132,10 +146,9 @@ export default function ProjectsSection() {
                   </div>
                   <button
                     onClick={nextImage}
-                    className="text-3xl text-white hover:text-blue-400 bg-transparent p-0 border-none"
-                    aria-label="Next image"
-                    style={{ background: "none" }}>
-                    &gt;
+                    className="text-white hover:text-blue-400 transition-colors"
+                    aria-label="Next image">
+                    <Arrow dir="right" className="w-5 h-5" />
                   </button>
                 </div>
                 <span className="mt-2 text-xs text-gray-300">
@@ -145,7 +158,7 @@ export default function ProjectsSection() {
             )}
           </div>
 
-          <div className="flex-1 flex flex-col justify-center items-start w-full md:w-1/2 h-full px-8 py-10 bg-black md:rounded-r-2xl">
+          <div className="flex-1 flex flex-col justify-center items-start w-full md:w-1/2 h-full px-8 py-10 bg-neutral-900 md:rounded-r-2xl">
             <h3 className="text-4xl font-extrabold mb-4 text-white">{project.title}</h3>
             <p className="text-lg text-gray-200 mb-6">{project.description}</p>
             <div className="mb-6">
@@ -182,10 +195,9 @@ export default function ProjectsSection() {
 
         <button
           onClick={nextProject}
-          className="absolute right-8 top-1/2 -translate-y-1/2 z-10 text-5xl text-white hover:text-blue-400 transition-colors bg-transparent shadow-none p-0 border-none"
-          aria-label="Next project"
-          style={{ background: "none" }}>
-          <span>&gt;</span>
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white/5 text-white hover:bg-blue-400 hover:text-black transition-colors border border-white/10"
+          aria-label="Next project">
+          <Arrow dir="right" className="w-6 h-6" />
         </button>
       </div>
     </section>

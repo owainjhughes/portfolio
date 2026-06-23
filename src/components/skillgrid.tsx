@@ -9,14 +9,14 @@ export default function SkillsGrid({ skills }: { skills: Skill[] }) {
           key={skill.label}
           className="group relative flex flex-col items-center justify-center w-28 h-32 sm:w-32 sm:h-36 cursor-pointer transition-transform duration-200 hover:scale-105"
         >
-          <div 
-            className="absolute inset-0 bg-linear-to-br from-gray-800 to-gray-900 group-hover:blue-60"
+          <div
+            className="absolute inset-0 bg-linear-to-br from-gray-800 to-gray-900 transition-all duration-300 group-hover:from-blue-500 group-hover:to-blue-700"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}
           />
-          <div 
-            className="absolute inset-1 bg-black transition-all duration-300 group-hover:bg-gray-900"
+          <div
+            className="absolute inset-1 bg-neutral-900 transition-all duration-300 group-hover:bg-neutral-800"
             style={{
               clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
             }}

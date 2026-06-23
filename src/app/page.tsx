@@ -31,8 +31,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-black">
-      <section id="about" className="min-h-screen bg-black text-white flex items-center justify-center px-4 pt-20 pb-16">
+    <div className="bg-neutral-950">
+      <section id="about" className="min-h-screen bg-neutral-950 text-white flex items-center justify-center px-4 pt-20 pb-16">
         <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
           <AboutSection />
           <SkillsGrid skills={skills} />
