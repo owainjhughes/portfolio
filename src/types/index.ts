@@ -6,6 +6,7 @@ export interface Skill {
 export interface Project {
   title: string;
   description: string;
+  note?: string;
   images: string[];
   tech: string[];
   site?: string;

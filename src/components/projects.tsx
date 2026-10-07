@@ -9,21 +9,22 @@ const projects: Project[] = [
     title: "ObuCon",
     description: "Online web application that determines the suitability of an online text-based resource, such as a short story or newspaper article, for people learning a non-native language.",
     images: ["/obucon1.png", "/obucon2.png"],
-    tech: ["Go (Gin, GORM)", "React", "TailWind CSS", "PostgreSQL", "Docker", "Terraform", "AWS (EC2, RDS)"],
+    tech: ["Go (Gin, GORM)", "React", "Tailwind CSS", "PostgreSQL", "Docker", "Terraform", "AWS (EC2, RDS)"],
     site: "https://obucon.com",
     github: "https://github.com/owainjhughes/obucon"
   },
   {
     title: "Discogrify",
-    description: "A web app that allows a user to view and sort critical ratings and reviews of the saved albums on Spotify. NOTE: Due to the 13/05/25 changes made to the Spotify API, this app cannot be given an unlimited user quota since I am an individual not an organization. Therefore, all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you! Or alternatively, use the test account if you just want to test the features. Email: discogrifytest@gmail.com Pass: discogrifytest!",
+    description: "A web app that allows a user to view and sort critical ratings and reviews of the saved albums on Spotify.",
+    note: "Due to the 13/05/25 changes made to the Spotify API, this app cannot be given an unlimited user quota since I am an individual not an organization. Therefore, all access needs to be manually added - So if you want to take a look at the website, feel free to email me your Spotify account's email address and I will be happy to add you! Or alternatively, use the test account if you just want to test the features. Email: discogrifytest@gmail.com Pass: discogrifytest!",
     images: ["/discog1.png", "/discog2.png", "/discog3.png"],
-    tech: ["TypeScript", "Node.js", "Express.js", "BootStrap CSS", "PostgreSQL", "RESTful APIs (Discogs, Spotify)"],
+    tech: ["TypeScript", "Node.js", "Express.js", "Bootstrap CSS", "PostgreSQL", "RESTful APIs (Discogs, Spotify)"],
     site: "https://discogrify.vercel.app/",
     github: "https://github.com/owainjhughes/discogrify"
   },
   {
     title: "Secure File Exchange System",
-    description: "A secure file exchange client / server system built in Java. Uses AES/RSA for enecryption and MD5/SHA for Hashing / Message Digests.",
+    description: "A secure file exchange client / server system built in Java. Uses AES/RSA for encryption and MD5/SHA for Hashing / Message Digests.",
     images: ["/javasecure.png"],
     tech: ["Java", "AES", "RSA", "MD5", "SHA"],
     github: "https://github.com/owainjhughes/secure-filetransfer-server"
@@ -34,13 +35,6 @@ const projects: Project[] = [
     images: ["/covidmodel.png", "/covidmodel2.png", "/covidmodel3.png", "/covidmodel4.png", "/covidmodel5.png"],
     tech: ["Python", "Jupyter Notebook", "PySpark", "Pandas", "NumPy", "Seaborn"],
     github: "https://github.com/owainjhughes/patient-modelling"
-  },
-    {
-    title: "Linux CLI Clone",
-    description: "A Linux command line interface clone built using C++. Mimics basing linux commands such as cd and mkdir, built using a tree-like linked list data structure. (It's a CLI, so not much to have an image of so here's a picture of young Mr Krabs instead)",
-    images: ["/Youngmrkrab.png"],
-    tech: ["C++"],
-    github: "https://github.com/owainjhughes/linux-filesystem-clone"
   },
 ];
 
@@ -161,6 +155,12 @@ export default function ProjectsSection() {
           <div className="flex-1 flex flex-col justify-center items-start w-full md:w-1/2 h-full px-8 py-10 bg-neutral-900 md:rounded-r-2xl">
             <h3 className="text-4xl font-extrabold mb-4 text-white">{project.title}</h3>
             <p className="text-lg text-gray-200 mb-6">{project.description}</p>
+            {project.note && (
+              <p className="text-sm text-gray-400 mb-6 border-l-2 border-blue-400 pl-3">
+                <span className="font-semibold text-gray-300">Note: </span>
+                {project.note}
+              </p>
+            )}
             <div className="mb-6">
               <span className="font-semibold text-white flex items-center mb-2">Tech Stack:</span>
               <ul className="list-disc list-inside text-gray-200 ml-2">
